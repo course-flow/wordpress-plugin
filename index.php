@@ -85,10 +85,10 @@ class courseflow {
 						echo '<div class="error">'.$CFerror.'</div>';
 				endif;
 			echo '<label>'.__('CourseFlow API key', 'courseflow').'</label>';
-			echo '<input name="courseflowApi[]" type="text" value="'.$api[0].'" />';
+			echo '<input name="courseflowApi[]" type="text" value="'.@$api[0].'" />';
 
 			echo '<label>'.__('CourseFlow API Secret', 'courseflow').'</label>';
-			echo '<input name="courseflowApi[]" type="text" value="'.$api[1].'" />';
+			echo '<input name="courseflowApi[]" type="text" value="'.@$api[1].'" />';
 
 			echo '<input name="updateCourseFlow" type="submit" value="'.__('Connect', 'courseflow').'"/>';
 			echo '</form>';
