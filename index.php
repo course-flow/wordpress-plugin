@@ -1,9 +1,11 @@
 <?php
 
-// Plugin Name: CourseFlow Shop
+// Plugin Name: CourseFlow
 // Plugin Author: Jerry Tieben
-// Description: With this plugin you can add your CourseFlow shop to your website
+// Description: With this plugin you can add your CourseFlow shop to your website and connect woocommerce to your CourseFlow account
 // Version: 1.01
+
+include('extensions/woocommerce/woocommerce.php');
 
 add_action( 'admin_menu', 'courseflow::menu' );
 add_action('admin_head', 'courseflow::save');
@@ -32,7 +34,7 @@ class courseflow {
 
 	public static function menu()
 	{
-		add_options_page( 'CourseFlow Shop', 'CourseFlow Shop', 'manage_options', 'courseFlowShop', 'courseflow::courseFlowSettingsPage' );
+		add_options_page( 'CourseFlow', 'CourseFlow', 'manage_options', 'courseFlowShop', 'courseflow::courseFlowSettingsPage' );
 	}
 
 	public static function save()
@@ -46,6 +48,11 @@ class courseflow {
 			delete_option('courseFlowShopContent');
 			delete_option('courseFlowShop_refreshed');
 		endif;
+	}
+
+	public static function settingsSet()
+	{
+
 	}
 
 	public static function refresh()
@@ -129,6 +136,60 @@ class courseflow {
 		if(isset($_GET['refreshCourseFlowShop'])):
 			if(time() - get_option('courseFlowShop_refreshed') > 60):
 				self::refresh();
+			endif;
+		endif;
+	}
+
+	public static function getFlows()
+	{
+		$cache = get_option('CF_flows');
+		$lastCache = get_option('CF_flows_last_update');
+
+		if(time() - intval($lastCache) < 3600):
+			return $cache;
+		endif;
+
+		$api = get_option('courseflowApi');
+		if(is_array($api) && trim($api[0]) !== '' && trim($api[1])):
+			$url = 'https://eu1.course-flow.com/api/?apikey='.$api[0].'&apisecret='.$api[1].'&action=getFlowsAndNumberSubscribers';
+			$flows = wp_remote_get($url, array( 'timeout' => 120));
+			$flows = json_decode($flows['body']);
+			update_option('CF_flows', $flows);
+			update_option('CF_flows_last_update', time());
+			return $flows;
+		else:
+			return false;
+		endif;
+	}
+
+	public static function subscribeUserToFlow($order, $flowid, $email, $firstname, $lastname)
+	{
+
+		$api = get_option('courseflowApi');
+		if(is_array($api) && trim($api[0]) !== '' && trim($api[1])):
+			$url = 'https://eu1.course-flow.com/api/?apikey='.$api[0].'&apisecret='.$api[1].'&action=getTempHandshake';
+			$handshake = json_decode(wp_remote_get($url, array( 'timeout' => 120))['body']);
+			$url = 'https://eu1.course-flow.com/api/';
+			$args = array('method' => 'POST',
+			              'body' => array(
+				              'apikey' => $api[0],
+				              'apisecret' => $api[1],
+				              'action' => 'addSubscriber',
+				              'flowid' => $flowid,
+				              'email' => $email,
+				              'firstname' => $firstname,
+				              'lastname' => $lastname,
+				              'handshake' => $handshake->handshake,
+				              'password' => substr(md5(uniqid()),0,8)
+			              ));
+			$response = wp_remote_post($url, $args);
+			$response = json_decode($response['body']);
+
+			if(isset($response->directLoginURL)):
+				$order->add_order_note(sprintf(__('User added to CourseFlow Flow %d', 'courseflow'), $flowid));
+				return $response->directLoginURL;
+			else:
+				$order->add_order_note(sprintf(__('Tried adding user to flow, but didn\'t succeed. Reason: %s', 'courseflow'), $response->message));
 			endif;
 		endif;
 	}
