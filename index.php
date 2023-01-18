@@ -3,9 +3,11 @@
 // Plugin Name: CourseFlow
 // Plugin Author: Jerry Tieben
 // Description: With this plugin you can add your CourseFlow shop to your website and connect woocommerce to your CourseFlow account
-// Version: 1.01
+// Version: 1.02
+
 
 include('extensions/woocommerce/woocommerce.php');
+include('update.php');
 
 add_action( 'admin_menu', 'courseflow::menu' );
 add_action('admin_head', 'courseflow::save');
@@ -16,6 +18,7 @@ add_action('wp_head', 'courseflow::forceRefresh');
 
 add_shortcode('courseflowShop', 'courseflow::integration');
 add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'courseflow::page_settings_link');
+
 
 class courseflow {
 
