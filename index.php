@@ -5,9 +5,23 @@
 // Description: With this plugin you can add your CourseFlow shop to your website and connect woocommerce to your CourseFlow account
 // Version: 1.02
 
+//CHECK FOR UPDATES
+require 'plugin-update-checker-master/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$updateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/course-flow/wordpress-plugin',
+	__FILE__,
+	'courseflow'
+);
+
+//Set the branch that contains the stable release.
+$updateChecker->setBranch('main');
+//$updateChecker->setAuthentication('your-token-here');
+
+
 
 include('extensions/woocommerce/woocommerce.php');
-include('update.php');
 
 add_action( 'admin_menu', 'courseflow::menu' );
 add_action('admin_head', 'courseflow::save');

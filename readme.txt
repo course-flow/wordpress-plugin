@@ -26,6 +26,9 @@ Go to the settings page of the plugin and enter the API credentials of your Cour
 
 == Changelog ==
 
+= 1.03 =
+Language files updatesd
+
 = 1.02 =
 WooCommerce extensions added.
 You can now connect woocommerce products to CourseFlow flows.
