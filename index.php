@@ -31,6 +31,7 @@ add_action('init', 'courseflow::language' );
 add_action('wp_head', 'courseflow::forceRefresh');
 
 add_shortcode('courseflowShop', 'courseflow::integration');
+
 add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'courseflow::page_settings_link');
 
 
@@ -134,8 +135,12 @@ class courseflow {
 	{
 		if($refresh || (time() - get_option('courseFlowShop_refreshed') > 86400)):
 			self::refresh();
+
+            remove_filter( 'the_content', 'convert_smilies', 20 );
 			return get_option('courseFlowShopContent');
 		else:
+
+            remove_filter( 'the_content', 'convert_smilies', 20 );
 			return get_option('courseFlowShopContent');
 		endif;
 

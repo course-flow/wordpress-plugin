@@ -26,8 +26,11 @@ Go to the settings page of the plugin and enter the API credentials of your Cour
 
 == Changelog ==
 
+= 1.04 =
+Bug fix: smilies activated in wordpress resulted in an error
+
 = 1.03 =
-Language files updatesd
+Language files updated
 
 = 1.02 =
 WooCommerce extensions added.
