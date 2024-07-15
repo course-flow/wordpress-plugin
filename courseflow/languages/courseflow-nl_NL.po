@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CourseFlow Shop\n"
+"POT-Creation-Date: 2023-01-18 17:05+0100\n"
+"PO-Revision-Date: 2023-01-18 17:06+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: index.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: extensions/woocommerce/woocommerce.php:19
+msgid "No flow selected - Click here to select"
+msgstr "Geen flow geselecteerd"
+
+#: extensions/woocommerce/woocommerce.php:27
+msgid "Please enter CourseFlow API settings to use this option"
+msgstr "Voer jouw CourseFlow API gegevens in op deze optie te gebruiken"
+
+#: extensions/woocommerce/woocommerce.php:36
+msgid "CourseFlow Flow"
+msgstr "CourseFlow Flow"
+
+#: extensions/woocommerce/woocommerce.php:50
+msgid "Redirect user to flow"
+msgstr "Stuur gebruiker door naar de flow"
+
+#: extensions/woocommerce/woocommerce.php:129
+msgid "You will be redirected to the bought course in a few seconds..."
+msgstr "Je wordt binnen enkele seconden doorgestuurd naar het gekochte item"
+
+#: index.php:73
+msgid "Error: Something went wrong, please check your settings"
+msgstr "Error: Er ging iets mis, controleer de instellingen en probeer opnieuw"
+
+#: index.php:85
+msgid "CourseFlow Shop Settings"
+msgstr "CourseFlow Shop Instellingen"
+
+#: index.php:97
+msgid "CourseFlow API key"
+msgstr "CourseFlow Api Key"
+
+#: index.php:100
+msgid "CourseFlow API Secret"
+msgstr "CourseFlow Api Secret"
+
+#: index.php:103
+msgid "Connect"
+msgstr "Verbinden"
+
+#: index.php:108
+msgid "Connection successfully made"
+msgstr "Verbinding succesvol gelegd"
+
+#: index.php:109
+msgid "Click here to change your API settings"
+msgstr "Klik hier om jouw API instellingen te wijzigen"
+
+#: index.php:110
+msgid ""
+"Now add the shortcode <em>[courseflowShop]</em> to any page where you want "
+"to display your CourseFlow Shop page:"
+msgstr ""
+"Voeg de code <em>[courseflowShop]</em> toe aan elke pagina waar je jouw "
+"CourseFlow Shop wilt tonen:"
+
+#: index.php:133
+msgid "Settings"
+msgstr "Instellingen"
+
+#: index.php:192
+#, php-format
+msgid "User added to CourseFlow Flow %d"
+msgstr "Gebruiker toegevoegd aan flow %d op CourseFlow"
+
+#: index.php:195
+#, php-format
+msgid "Tried adding user to flow, but didn't succeed. Reason: %s"
+msgstr ""
+"Geprobeerd gebruiker aan flow toe te voegen, maar dat is niet gelukt. Reden "
+"%s"
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:56
+msgid "View details"
+msgstr "Bekijk details"
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:79
+#, php-format
+msgid "More information about %s"
+msgstr "Meer informatie over %s"
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:130
+msgid "Check for updates"
+msgstr "Controleer op updates"
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr "De %s plugin is bijgewerkt"
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:219
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr "Een nieuwe versie van de %s plugin is beschikbaar"
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:221
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr "Niet mogelijk te bepalen of er nieuwe versie van %s beschikbaar is."
+
+#: plugin-update-checker-master/Puc/v5p0/Plugin/Ui.php:227
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr "Onbekende updatecontrole-status \"%s\""
+
+#: plugin-update-checker-master/Puc/v5p0/Vcs/PluginUpdateChecker.php:98
+msgid "There is no changelog available."
+msgstr "Er is geen veranderinsglogboek beschikbaar."
+
+#. Plugin Name of the plugin/theme
+msgid "CourseFlow"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"With this plugin you can add your CourseFlow shop to your website and "
+"connect woocommerce to your CourseFlow account"
+msgstr ""
+"Met deze plugin kan je jouw CourseFlow account koppelen aan jouw website en "
+"woocommerce installatie"
+
+#. Author of the plugin/theme
+msgid "Jerry Tieben"
+msgstr "Jerry Tieben"
+
+#~ msgid "CourseFlow Shop"
+#~ msgstr "CourseFlow Shop"
+
+#~ msgid "With this plugin you can add your CourseFlow shop to your website"
+#~ msgstr ""
+#~ "Met deze plugin kan je de CourseFlow shop aan elke pagina op jouw site "
+#~ "toevoegen"
